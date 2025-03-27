@@ -16,12 +16,6 @@ This script will drop the tables if they already exist
 \c "DataWarehouse";
 
 drop table if exists bronze.crm_cust_info;
-drop table if exists bronze.prd_info;
-drop table if exists bronze.sales_details;
-drop table if exists bronze.erp_cust_az12;
-drop table if exists bronze.erp_loc_a101;
-drop table if exists bronze.erp_px_cat_g1v2;
-
 create table
     bronze.crm_cust_info (
         cst_id int primary key,
@@ -34,6 +28,7 @@ create table
         cst_create_date date
     );
 
+drop table if exists bronze.prd_info;
 create table
     bronze.prd_info (
         prd_id int primary key,
@@ -45,6 +40,7 @@ create table
         prd_end_dt date
     );
 
+drop table if exists bronze.sales_details;
 create table
     bronze.sales_details (
         sls_ord_num int primary key,
@@ -57,10 +53,19 @@ create table
         sls_quantity int,
         sls_price decimal(10, 2)
     );
+
+
+drop table if exists bronze.erp_cust_az12;
 create table
     bronze.erp_cust_az12 (CID int primary key, BDATE date, GEN varchar(20));
+
+
+drop table if exists bronze.erp_loc_a101;
 create table
     bronze.erp_loc_a101 (CID int primary key, CNTRY varchar(50));
+
+
+drop table if exists bronze.erp_px_cat_g1v2;
 create table
     bronze.erp_px_cat_g1v2 (
         ID int primary key,
