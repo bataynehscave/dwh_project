@@ -15,23 +15,23 @@ This script will drop the tables if they already exist
 
 \c "DataWarehouse";
 
+
 drop table if exists bronze.crm_cust_info;
 create table
     bronze.crm_cust_info (
-        cst_id int primary key,
+        cst_id int,
         cst_key varchar(100),
         cst_firstname varchar(100),
         cst_lastname varchar(20),
-        cst_address varchar(100),
         cst_marital_status varchar(20),
-        cst_gender varchar(20),
+        cst_gndr varchar(20),
         cst_create_date date
     );
 
-drop table if exists bronze.prd_info;
+drop table if exists bronze.crm_prd_info;
 create table
-    bronze.prd_info (
-        prd_id int primary key,
+    bronze.crm_prd_info (
+        prd_id int,
         prd_key varchar(60),
         prd_nm varchar(100),
         prd_cost decimal(10, 2),
@@ -40,15 +40,15 @@ create table
         prd_end_dt date
     );
 
-drop table if exists bronze.sales_details;
+drop table if exists bronze.crm_sales_details;
 create table
-    bronze.sales_details (
-        sls_ord_num int primary key,
+    bronze.crm_sales_details (
+        sls_ord_num varchar(50),
         sls_prd_key varchar(60),
         sls_cust_id int,
-        sls_order_dt date,
-        sls_ship_dt date,
-        sls_due_dt date,
+        sls_order_dt int,
+        sls_ship_dt int,
+        sls_due_dt int,
         sls_sales decimal(10, 2),
         sls_quantity int,
         sls_price decimal(10, 2)
@@ -57,18 +57,18 @@ create table
 
 drop table if exists bronze.erp_cust_az12;
 create table
-    bronze.erp_cust_az12 (CID int primary key, BDATE date, GEN varchar(20));
+    bronze.erp_cust_az12 (CID varchar(50), BDATE date, GEN varchar(20));
 
 
 drop table if exists bronze.erp_loc_a101;
 create table
-    bronze.erp_loc_a101 (CID int primary key, CNTRY varchar(50));
+    bronze.erp_loc_a101 (CID varchar(50), CNTRY varchar(50));
 
 
 drop table if exists bronze.erp_px_cat_g1v2;
 create table
     bronze.erp_px_cat_g1v2 (
-        ID int primary key,
+        ID varchar(50),
         CAT varchar(50),
         SUBCAT varchar(50),
         MAINTENANCE varchar(50)
