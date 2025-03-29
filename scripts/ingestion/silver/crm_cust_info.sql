@@ -1,3 +1,4 @@
+insert into silver.crm_cust_info
 select 
 	cst_id,
 	cst_key,
