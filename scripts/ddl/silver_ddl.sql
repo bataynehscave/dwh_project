@@ -32,7 +32,8 @@ drop table if exists silver.crm_prd_info;
 create table
     silver.crm_prd_info (
         prd_id int,
-        prd_key varchar(60),
+        cat_id varchar(50),
+        prd_key varchar(50),
         prd_nm varchar(100),
         prd_cost decimal(10, 2),
         prd_line varchar(100),
