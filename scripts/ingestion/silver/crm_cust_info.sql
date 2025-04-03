@@ -1,3 +1,6 @@
+raise notice 'Ingesting CRM Customer Info into Silver Layer';
+
+Truncate table silver.crm_cust_info;
 insert into silver.crm_cust_info
 select 
 	cst_id,

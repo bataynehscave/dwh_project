@@ -1,3 +1,8 @@
+raise notice 'Ingesting CRM product Info into Silver Layer';
+
+Truncate table silver.crm_prd_info;
+
+
 insert into silver.crm_prd_info
 
 select

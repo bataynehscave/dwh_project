@@ -1,3 +1,7 @@
+raise notice 'Ingesting ERP customer Info into Silver Layer';
+
+Truncate table silver.erp_cust_az12;
+
 insert into silver.erp_cust_az12
 select
 

@@ -1,3 +1,7 @@
+raise notice 'Ingesting ERP location Info into Silver Layer';
+
+Truncate table silver.erp_loc_a101;
+
 insert into silver.erp_loc_a101
 select
 replace(cid, '-', '')  as cid,
