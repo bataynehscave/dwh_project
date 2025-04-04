@@ -79,7 +79,7 @@ BEGIN
         INSERT INTO silver.crm_sales_details
         SELECT 
             sls_ord_num,
-            sls_prd_key,
+            replace(sls_prd_key, '-', '_') as sls_prd_key,
             sls_cust_id,
             CASE WHEN sls_order_dt <= 0 OR FLOOR(LOG(sls_order_dt)) < 7 THEN NULL
                  ELSE CAST(CAST(sls_order_dt AS VARCHAR(8)) AS DATE)

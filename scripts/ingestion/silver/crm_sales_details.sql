@@ -1,4 +1,4 @@
-raise notice 'Ingesting CRM sales Info into Silver Layer';
+
 
 Truncate table silver.crm_sales_details;
 
@@ -7,7 +7,7 @@ insert into silver.crm_sales_details
 
 select 
 sls_ord_num,
-sls_prd_key,
+replace(sls_prd_key, '-', '_') as sls_prd_key,
 sls_cust_id,
 case 
 	when sls_order_dt <= 0 or floor(log(sls_order_dt)) < 7 then NULL
